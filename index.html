@@ -1,0 +1,1701 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 24th Birthday, Baby! 🎂</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== RESET & BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #e8f4fd 0%,
+          #c5e0ff 50%,
+          #b0d4ff 100%
+        );
+        color: #2c3e50;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      /* ===== COLOR PALETTE ===== */
+      :root {
+        --baby-blue: #b0d4ff;
+        --light-blue: #c5e0ff;
+        --lighter-blue: #e8f4fd;
+        --soft-blue: #d6e8ff;
+        --gold: #d4af37;
+        --gold-light: #f0d060;
+        --white: #ffffff;
+        --dark: #2c3e50;
+        --pink: #ffb6c1;
+        --rose: #e8a0bf;
+      }
+
+      /* ===== FLOATING PARTICLES BACKGROUND ===== */
+      #particles-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* ===== NAVIGATION ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 2px 30px rgba(176, 212, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .navbar .logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 28px;
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      .navbar .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .navbar .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .navbar .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .navbar .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: var(--dark);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 120px 20px 60px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero .floating-balloons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .balloon {
+        position: absolute;
+        bottom: -150px;
+        font-size: 50px;
+        animation: floatUp linear infinite;
+        opacity: 0.7;
+        cursor: pointer;
+        pointer-events: all;
+        transition: transform 0.2s;
+        user-select: none;
+      }
+
+      .balloon:hover {
+        transform: scale(1.2);
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-50vh) rotate(5deg);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-110vh) rotate(-5deg);
+          opacity: 0;
+        }
+      }
+
+      .balloon.popped {
+        animation: none !important;
+        transform: scale(2);
+        opacity: 0 !important;
+        transition: all 0.3s ease;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero .greeting-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 14px;
+        color: var(--gold);
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(42px, 8vw, 90px);
+        color: var(--dark);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+
+      .hero h1 .highlight {
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero .typewriter-container {
+        font-size: clamp(18px, 3vw, 32px);
+        color: var(--dark);
+        font-weight: 300;
+        min-height: 50px;
+        margin-bottom: 30px;
+      }
+
+      .hero .typewriter-container .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background: var(--gold);
+        margin-left: 4px;
+        animation: blink 0.8s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .hero .sub-text {
+        font-size: 16px;
+        color: #5a6a7a;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      .hero .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        color: white;
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        color: var(--dark);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        transform: translateY(-3px);
+      }
+
+      /* ===== SECTION STYLES ===== */
+      .section {
+        padding: 100px 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(32px, 5vw, 48px);
+        color: var(--dark);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: #5a6a7a;
+        font-size: 16px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .section-title .title-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .section-title .title-decoration .line {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
+
+      .section-title .title-decoration .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ===== ABOUT / PERSONAL SECTION ===== */
+      .about {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .about-content {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-text h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        color: var(--dark);
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        font-size: 15px;
+        line-height: 1.9;
+        color: #5a6a7a;
+        margin-bottom: 15px;
+      }
+
+      .about-text .qualities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .about-text .quality-tag {
+        padding: 8px 20px;
+        border-radius: 50px;
+        background: rgba(176, 212, 255, 0.4);
+        color: var(--dark);
+        font-size: 13px;
+        font-weight: 500;
+        border: 1px solid rgba(176, 212, 255, 0.6);
+      }
+
+      .about-visual {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-visual .tulip-decoration {
+        font-size: 120px;
+        animation: sway 3s ease-in-out infinite;
+        text-align: center;
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: linear-gradient(
+          135deg,
+          var(--lighter-blue),
+          var(--baby-blue)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 30px rgba(176, 212, 255, 0.2);
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 45px rgba(176, 212, 255, 0.4);
+      }
+
+      .gallery-item .placeholder-content {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .gallery-item .placeholder-content .icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      .gallery-item .placeholder-content p {
+        font-size: 13px;
+        color: #5a6a7a;
+        font-weight: 500;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gallery-item .note-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 15px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .note-overlay {
+        opacity: 1;
+      }
+
+      /* ===== TIMELINE ===== */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          var(--baby-blue),
+          var(--gold),
+          var(--baby-blue)
+        );
+        border-radius: 3px;
+      }
+
+      .timeline-item {
+        padding: 20px 0;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      .timeline-item:nth-child(even) {
+        justify-content: flex-end;
+      }
+
+      .timeline-item .timeline-content {
+        width: 45%;
+        padding: 25px 30px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 5px 25px rgba(176, 212, 255, 0.15);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .timeline-item .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(176, 212, 255, 0.3);
+      }
+
+      .timeline-item .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: var(--gold);
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow:
+          0 0 0 3px var(--gold),
+          0 5px 15px rgba(212, 175, 55, 0.3);
+        z-index: 2;
+      }
+
+      .timeline-item .timeline-date {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gold);
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .timeline-item .timeline-title {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: var(--dark);
+      }
+
+      .timeline-item .timeline-desc {
+        font-size: 14px;
+        color: #5a6a7a;
+        line-height: 1.6;
+      }
+
+      /* ===== NOTE ON TIMELINE ===== */
+      .timeline-note {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 15px;
+        border: 2px dashed var(--baby-blue);
+      }
+
+      .timeline-note p {
+        font-size: 14px;
+        color: #5a6a7a;
+      }
+
+      .timeline-note .note-highlight {
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      /* ===== BIRTHDAY WISH / CONFETTI SECTION ===== */
+      .wish-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.5),
+          rgba(176, 212, 255, 0.3)
+        );
+        text-align: center;
+      }
+
+      .wish-card {
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(176, 212, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .wish-card .big-emoji {
+        font-size: 80px;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .wish-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        color: var(--dark);
+        margin-bottom: 15px;
+      }
+
+      .wish-card p {
+        font-size: 16px;
+        color: #5a6a7a;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .confetti-btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .confetti-btn::before {
+        content: "🎊";
+        margin-right: 8px;
+      }
+
+      /* ===== LETTER SECTION ===== */
+      .letter-section {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .letter-card {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 50px 45px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(176, 212, 255, 0.15);
+        position: relative;
+        border: 1px solid rgba(176, 212, 255, 0.3);
+      }
+
+      .letter-card::before {
+        content: "💌";
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+      }
+
+      .letter-card .letter-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px dashed var(--lighter-blue);
+      }
+
+      .letter-card .letter-header h3 {
+        font-family: "Dancing Script", cursive;
+        font-size: 32px;
+        color: var(--dark);
+      }
+
+      .letter-card .letter-body {
+        font-size: 15px;
+        line-height: 2;
+        color: #5a6a7a;
+      }
+
+      .letter-card .letter-body p {
+        margin-bottom: 20px;
+      }
+
+      .letter-card .letter-footer {
+        text-align: right;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px dashed var(--lighter-blue);
+        font-family: "Dancing Script", cursive;
+        font-size: 22px;
+        color: var(--dark);
+      }
+
+      .letter-note {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: var(--gold);
+        font-weight: 500;
+        padding: 15px;
+        background: rgba(212, 175, 55, 0.1);
+        border-radius: 10px;
+        border: 1px dashed var(--gold);
+      }
+
+      /* ===== INTERACTIVE CAKE ===== */
+      .cake-section {
+        text-align: center;
+        padding: 80px 20px;
+        position: relative;
+      }
+
+      .cake-container {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .cake {
+        font-size: 120px;
+        line-height: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .cake:hover {
+        transform: scale(1.05);
+      }
+
+      .candles {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+      }
+
+      .candle {
+        font-size: 30px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .candle.extinguished {
+        filter: grayscale(1);
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+
+      .cake-text {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--dark);
+        margin-top: 15px;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--dark);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer .footer-heart {
+        font-size: 30px;
+        margin-bottom: 15px;
+        display: block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1);
+        }
+        75% {
+          transform: scale(1.1);
+        }
+      }
+
+      .footer p {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .footer .footer-name {
+        font-family: "Dancing Script", cursive;
+        font-size: 20px;
+        color: var(--gold);
+      }
+
+      /* ===== CONFETTI OVERLAY ===== */
+      .confetti-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        overflow: hidden;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        animation: confettiFall linear forwards;
+      }
+
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== FLOATING HEARTS ===== */
+      .floating-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .heart-particle {
+        position: absolute;
+        bottom: -50px;
+        font-size: 20px;
+        animation: heartFloat linear infinite;
+        opacity: 0.4;
+      }
+
+      @keyframes heartFloat {
+        0% {
+          transform: translateY(0) rotate(0deg) scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: translateY(-50vh) rotate(180deg) scale(1.2);
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-110vh) rotate(360deg) scale(0.8);
+          opacity: 0;
+        }
+      }
+
+      /* ===== SCROLL ANIMATIONS ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.8s ease;
+      }
+
+      .reveal-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 12px 20px;
+        }
+
+        .navbar .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          padding: 20px;
+          gap: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-item,
+        .timeline-item:nth-child(even) {
+          justify-content: flex-start;
+          padding-left: 60px;
+        }
+
+        .timeline-item .timeline-content {
+          width: 100%;
+        }
+
+        .timeline-item .timeline-dot {
+          left: 30px;
+        }
+
+        .wish-card {
+          padding: 40px 20px;
+        }
+
+        .letter-card {
+          padding: 40px 20px;
+        }
+
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-text .qualities {
+          justify-content: center;
+        }
+
+        .cake {
+          font-size: 80px;
+        }
+
+        .candle {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .btn {
+          padding: 14px 28px;
+          font-size: 14px;
+        }
+
+        .section {
+          padding: 60px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== FLOATING HEARTS BACKGROUND ===== -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <a href="#" class="logo">For Millie ❤️</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#wish">Wish</a></li>
+        <li><a href="#letter">Letter</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+      <div class="floating-balloons" id="balloonContainer"></div>
+
+      <div class="hero-content">
+        <div class="greeting-tag">🎂 Happy Birthday Baby 🎂</div>
+        <h1>
+          Happy 24th<br /><span class="highlight">Birthday, Millie!</span>
+        </h1>
+        <div class="typewriter-container">
+          <span id="typewriterText"></span><span class="cursor"></span>
+        </div>
+        <p class="sub-text">
+          To the most beautiful soul I know — you light up my world in ways
+          words can't express. Today, we celebrate <strong>you</strong> and the
+          incredible person you are. 💕
+        </p>
+        <div class="cta-buttons">
+          <a href="#wish" class="btn btn-primary">🎉 Make a Wish</a>
+          <a href="#letter" class="btn btn-secondary">💌 Read Your Letter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT / PERSONAL SECTION ===== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>🌸 About My Baby 🌸</h2>
+          <p>The woman who makes every day brighter</p>
+          <div class="title-decoration">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text reveal-left">
+            <h3>Happy 24th, my love! 🎉</h3>
+            <p>
+              <!-- ================================================================== -->
+              <!-- 📝 NOTE: Edit this section to write about her in your own words!     -->
+              <!-- ================================================================== -->
+              Milanie — my Millie, my baby, my everything. You are the most
+              amazing person I've ever met. Your smile lights up my darkest
+              days, and your laughter is my favorite melody.
+            </p>
+            <p>
+              You're turning <strong>24</strong> today, and I couldn't be more
+              proud of the woman you've become. You are strong, kind, beautiful,
+              and so full of love. I feel incredibly lucky to have you in my
+              life.
+            </p>
+            <p>These are just a few of the things I love about you...</p>
+
+            <!-- ================================================================== -->
+            <!-- 📝 NOTE: Customize these qualities to match her personality!         -->
+            <!-- ================================================================== -->
+            <div class="qualities">
+              <span class="quality-tag">💖 Her beautiful smile</span>
+              <span class="quality-tag">🌷 Her love for tulips</span>
+              <span class="quality-tag">🎵 Her beautiful voice</span>
+              <span class="quality-tag">☕ Her morning glow</span>
+              <span class="quality-tag">🌟 Her big heart</span>
+              <span class="quality-tag">💪 Her strength</span>
+              <span class="quality-tag">✨ Her kindness</span>
+              <span class="quality-tag">🎀 Her cute laugh</span>
+            </div>
+          </div>
+
+          <div class="about-visual reveal-right">
+            <div class="tulip-decoration">🌷</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>📸 Our Moments 📸</h2>
+          <p>Memories that I'll cherish forever</p>
+          <div class="title-decoration">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- ================================================================== -->
+          <!-- 📝 NOTE: Replace the placeholder src with your actual image paths!   -->
+          <!-- Example: <img src="images/our-photo-1.jpg" alt="Description">        -->
+          <!-- ================================================================== -->
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-1.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">🌷</div>
+              <p>📸 Add your favorite photo of her here!</p>
+            </div>
+            <div class="note-overlay">Me and my baby 💕</div>
+          </div>
+
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-2.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">💑</div>
+              <p>📸 Add a photo together here!</p>
+            </div>
+            <div class="note-overlay">Our special moment ✨</div>
+          </div>
+
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-3.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">🎂</div>
+              <p>📸 Add a birthday photo here!</p>
+            </div>
+            <div class="note-overlay">Happy 24th! 🎉</div>
+          </div>
+
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-4.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">🌅</div>
+              <p>📸 Add a sunset/nature photo here!</p>
+            </div>
+            <div class="note-overlay">You're my sunshine ☀️</div>
+          </div>
+
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-5.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">🌷</div>
+              <p>📸 Add her with tulips here!</p>
+            </div>
+            <div class="note-overlay">Tulips for my tulip 🌷</div>
+          </div>
+
+          <div class="gallery-item reveal-scale">
+            <!-- 📸 Replace this placeholder with your image: <img src="your-image-6.jpg" alt="Our beautiful memory"> -->
+            <div class="placeholder-content">
+              <div class="icon">💕</div>
+              <p>📸 Add a candid love shot here!</p>
+            </div>
+            <div class="note-overlay">My favorite person ❤️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE SECTION ===== -->
+    <section
+      class="section"
+      id="timeline"
+      style="background: rgba(255, 255, 255, 0.3)"
+    >
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>📅 Our Journey 📅</h2>
+          <p>The beautiful story of us</p>
+          <div class="title-decoration">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <!-- ================================================================== -->
+          <!-- 📝 NOTE: Edit the dates, titles, and descriptions below to          -->
+          <!--          reflect YOUR personal love story!                          -->
+          <!-- ================================================================== -->
+          <div class="timeline-item reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">📌 When we first met</div>
+              <div class="timeline-title">The Day It All Began 💫</div>
+              <div class="timeline-desc">
+                <!-- 📝 Edit this: Describe the day you first met! -->
+                [Add the date you met and describe that special moment here...]
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">📌 Our first date</div>
+              <div class="timeline-title">A Night to Remember 🌙</div>
+              <div class="timeline-desc">
+                <!-- 📝 Edit this: Describe your first date! -->
+                [Add details about your first date here...]
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">📌 First "I Love You"</div>
+              <div class="timeline-title">The Three Little Words 💕</div>
+              <div class="timeline-desc">
+                <!-- 📝 Edit this: When did you first say "I love you"? -->
+                [Add when and how you first said "I love you" here...]
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">📌 A special memory</div>
+              <div class="timeline-title">Unforgettable Moment ✨</div>
+              <div class="timeline-desc">
+                <!-- 📝 Edit this: Add one of your favorite memories together! -->
+                [Add a special memory you both cherish here...]
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">📌 Today</div>
+              <div class="timeline-title">Happy 24th Birthday! 🎂</div>
+              <div class="timeline-desc">
+                Today is all about celebrating YOU — the most incredible person
+                in my life. And this is just the beginning of forever with you.
+                ❤️
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-note reveal">
+          <p>
+            💡 <span class="note-highlight">Pro Tip:</span> Edit the dates,
+            titles, and descriptions above to tell YOUR unique love story!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAKE + BLOW CANDLES SECTION ===== -->
+    <section class="cake-section reveal-scale" id="cake">
+      <div class="cake-container" id="cakeContainer">
+        <div class="candles" id="candles">
+          <span class="candle" data-index="0">🕯️</span>
+          <span class="candle" data-index="1">🕯️</span>
+          <span class="candle" data-index="2">🕯️</span>
+          <span class="candle" data-index="3">🕯️</span>
+          <span class="candle" data-index="4">🕯️</span>
+        </div>
+        <div class="cake">🎂</div>
+      </div>
+      <p class="cake-text" id="cakeText">Click the candles to blow them! 🎉</p>
+      <p
+        class="cake-text"
+        style="font-size: 14px; font-weight: 300; margin-top: 5px"
+      >
+        (Tap each candle to extinguish it, then make a wish!)
+      </p>
+    </section>
+
+    <!-- ===== BIRTHDAY WISH / CONFETTI SECTION ===== -->
+    <section class="section wish-section" id="wish">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>🎊 Make a Wish! 🎊</h2>
+          <p>Click the button and make your wish come true</p>
+          <div class="title-decoration">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="wish-card reveal-scale">
+          <span class="big-emoji">✨</span>
+          <h3>Happy 24th Birthday, Baby! 🎉</h3>
+          <p>
+            May your day be filled with as much joy and warmth as you bring into
+            my life. You deserve all the happiness in the world — today and
+            always.
+            <br /><br />
+            Make a wish, my love. I hope every single one of your dreams comes
+            true. 🌟
+          </p>
+          <button class="btn btn-primary confetti-btn" id="confettiButton">
+            🎉 Celebrate!
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LETTER SECTION ===== -->
+    <section class="section letter-section" id="letter">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>💌 A Letter for You 💌</h2>
+          <p>Words from the heart</p>
+          <div class="title-decoration">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="letter-card reveal-scale">
+          <div class="letter-header">
+            <h3>To my dearest Millie,</h3>
+          </div>
+          <div class="letter-body">
+            <!-- ================================================================== -->
+            <!-- 📝 NOTE: Write your personal letter to her right here!              -->
+            <!--          Pour your heart out — she'll love it! ❤️                   -->
+            <!-- ================================================================== -->
+            <p>
+              [Write your heartfelt letter here... Tell her how much she means
+              to you, how you feel about her, your favorite memories, what you
+              love most about her, and your hopes for your future together.]
+            </p>
+            <p>
+              [Example: Happy 24th birthday, my love! Every day with you feels
+              like a dream. You've brought so much light and joy into my life,
+              and I'm endlessly grateful for you. I love the way you smile, the
+              way you laugh, the way you care about the people around you...]
+            </p>
+            <p>
+              [Share a personal memory or inside joke, something only the two of
+              you would understand. This will make it extra special!]
+            </p>
+            <p>
+              [End with your hopes for her future and your future together...]
+            </p>
+          </div>
+          <div class="letter-footer">
+            Forever yours,<br />
+            [Your Name] ❤️
+          </div>
+        </div>
+
+        <div class="letter-note reveal">
+          💡 <strong>Note:</strong> Replace the text above with your own
+          personal letter to her. Make it from the heart!
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <span class="footer-heart">💖</span>
+      <p>Made with infinite love, especially for you.</p>
+      <p class="footer-name">Happy 24th Birthday, Millie! 🎂</p>
+      <p style="margin-top: 10px; font-size: 12px; opacity: 0.6">
+        🌷 Always remember — you are loved. 🌷
+      </p>
+    </footer>
+
+    <!-- ===== CONFETTI CONTAINER ===== -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+      // ============================================================================
+      // 1. CONFETTI SYSTEM
+      // ============================================================================
+      function launchConfetti(count = 150) {
+        const container = document.getElementById("confettiContainer");
+        const colors = [
+          "#D4AF37",
+          "#FFB6C1",
+          "#B0D4FF",
+          "#F0D060",
+          "#FF6B6B",
+          "#C5E0FF",
+          "#E8A0BF",
+          "#FFD700",
+        ];
+        const shapes = ["■", "●", "▲", "★", "♦", "♥"];
+
+        for (let i = 0; i < count; i++) {
+          const piece = document.createElement("div");
+          piece.className = "confetti-piece";
+          piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+          piece.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    top: -${Math.random() * 20}px;
+                    color: ${colors[Math.floor(Math.random() * colors.length)]};
+                    font-size: ${Math.random() * 12 + 8}px;
+                    animation-duration: ${Math.random() * 2 + 2}s;
+                    animation-delay: ${Math.random() * 2}s;
+                    transform: rotate(${Math.random() * 360}deg);
+                `;
+          container.appendChild(piece);
+
+          setTimeout(() => piece.remove(), 5000);
+        }
+      }
+
+      document
+        .getElementById("confettiButton")
+        .addEventListener("click", () => {
+          launchConfetti(250);
+        });
+
+      // Launch initial confetti on page load
+      window.addEventListener("load", () => {
+        setTimeout(() => launchConfetti(120), 500);
+      });
+
+      // ============================================================================
+      // 2. TYPEWRITER EFFECT
+      // ============================================================================
+      const phrases = [
+        "My everything, my world, my home 💕",
+        "The most beautiful soul I know 🌷",
+        "Happy 24th, my love! 🎂",
+        "You make life magical ✨",
+        "I love you more than words can say ❤️",
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typewriterElement = document.getElementById("typewriterText");
+
+      function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (!isDeleting) {
+          typewriterElement.textContent = currentPhrase.substring(
+            0,
+            charIndex + 1,
+          );
+          charIndex++;
+
+          if (charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 3000);
+            return;
+          }
+          setTimeout(typeEffect, 50 + Math.random() * 50);
+        } else {
+          typewriterElement.textContent = currentPhrase.substring(
+            0,
+            charIndex - 1,
+          );
+          charIndex--;
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(typeEffect, 300);
+            return;
+          }
+          setTimeout(typeEffect, 30);
+        }
+      }
+
+      typeEffect();
+
+      // ============================================================================
+      // 3. BALLOON SYSTEM
+      // ============================================================================
+      const balloonEmojis = ["🎈", "🎈", "🎈", "🟦", "🩵", "🎈"];
+      const balloonContainer = document.getElementById("balloonContainer");
+
+      function createBalloon() {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.textContent =
+          balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
+        balloon.style.left = Math.random() * 90 + "%";
+        balloon.style.fontSize = Math.random() * 30 + 35 + "px";
+        balloon.style.animationDuration = Math.random() * 8 + 8 + "s";
+        balloon.style.animationDelay = Math.random() * 3 + "s";
+
+        balloon.addEventListener("click", function (e) {
+          e.stopPropagation();
+          this.classList.add("popped");
+          // Small burst effect
+          const burst = document.createElement("div");
+          burst.style.cssText = `
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 30px;
+                    pointer-events: none;
+                    z-index: 10;
+                `;
+          burst.textContent = "💥";
+          this.appendChild(burst);
+          setTimeout(() => this.remove(), 300);
+        });
+
+        balloonContainer.appendChild(balloon);
+
+        // Remove balloon after it floats up
+        setTimeout(() => {
+          if (balloon.parentNode) balloon.remove();
+        }, 15000);
+      }
+
+      // Create balloons periodically
+      setInterval(createBalloon, 2000);
+      // Create initial batch
+      for (let i = 0; i < 8; i++) {
+        setTimeout(createBalloon, i * 400);
+      }
+
+      // ============================================================================
+      // 4. FLOATING HEARTS BACKGROUND
+      // ============================================================================
+      const heartsContainer = document.getElementById("floatingHearts");
+      const heartSymbols = ["❤️", "💕", "💖", "💗", "💓", "🩵", "💙"];
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart-particle";
+        heart.textContent =
+          heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.fontSize = Math.random() * 15 + 12 + "px";
+        heart.style.animationDuration = Math.random() * 15 + 15 + "s";
+        heart.style.animationDelay = Math.random() * 10 + "s";
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          if (heart.parentNode) heart.remove();
+        }, 30000);
+      }
+
+      for (let i = 0; i < 20; i++) {
+        setTimeout(createHeart, i * 600);
+      }
+      setInterval(createHeart, 2000);
+
+      // ============================================================================
+      // 5. CANDLE BLOWING
+      // ============================================================================
+      const candles = document.querySelectorAll(".candle");
+      const cakeText = document.getElementById("cakeText");
+      let extinguishedCount = 0;
+
+      candles.forEach((candle) => {
+        candle.addEventListener("click", function () {
+          if (!this.classList.contains("extinguished")) {
+            this.classList.add("extinguished");
+            extinguishedCount++;
+
+            if (extinguishedCount === candles.length) {
+              cakeText.textContent =
+                "🎉 All candles blown! Make a wish, baby! 🎉";
+              launchConfetti(180);
+            } else {
+              cakeText.textContent = `💨 ${extinguishedCount}/${candles.length} candles blown! Keep going!`;
+            }
+
+            // Play a little animation
+            this.style.transform = "scale(1.3)";
+            setTimeout(() => {
+              this.style.transform = "";
+            }, 300);
+          }
+        });
+      });
+
+      // ============================================================================
+      // 6. SCROLL REVEAL ANIMATIONS
+      // ============================================================================
+      const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right, .reveal-scale",
+      );
+
+      function checkReveal() {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+
+        revealElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < windowHeight - revealPoint) {
+            element.classList.add("visible");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", checkReveal);
+      window.addEventListener("load", () => {
+        setTimeout(checkReveal, 200);
+      });
+      checkReveal();
+
+      // ============================================================================
+      // 7. HAMBURGER MENU
+      // ============================================================================
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close nav on link click
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // ============================================================================
+      // 8. SMOOTH NAVBAR BACKGROUND ON SCROLL
+      // ============================================================================
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.style.background = "rgba(255, 255, 255, 0.95)";
+          navbar.style.boxShadow = "0 2px 30px rgba(176, 212, 255, 0.3)";
+        } else {
+          navbar.style.background = "rgba(255, 255, 255, 0.85)";
+          navbar.style.boxShadow = "0 2px 30px rgba(176, 212, 255, 0.2)";
+        }
+      });
+
+      console.log("🎂 Happy 24th Birthday, Baby! 🎂");
+      console.log("💕 Made with love, especially for Millie 💕");
+    </script>
+  </body>
+</html>
